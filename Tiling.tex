@@ -1,0 +1,182 @@
+\documentclass[12pt]{scrartcl}
+
+\input{settings}
+
+\lhead{\today}
+\rhead{Phạm Bảo}
+\usepackage{pdfpages}
+\begin{document}
+
+\title{\vspace{-2em}\textcolor{black}{\textbf{\LARGE SỐ PHỨC TRONG CÁC BÀI TOÁN TỔ HỢP}}}
+\makeatletter
+
+%\subtitle{\vspace{1.5em}{\textbf{\LARGE CAUCHY-SCHWARZ-HOLDER}}}
+\author{\Large Phạm Bảo -\begin{CJK}{UTF8}{ipxm} カズマアカリ。\end{CJK}\vspace{-1em}}
+
+
+\maketitle
+\thispagestyle{empty}
+
+%\section{\huge Tổ hợp}
+%\subsection{\LARGE \textcolor{dk}{Đề bài}}
+\tableofcontents
+\thispagestyle{plain}
+\newpage 
+\section{\Large Giới thiệu}
+Trong bài viết này, chúng ta sẽ tìm hiểu và giải quyết một số vấn đề bằng công cụ hiện đại nhất ngày nay, số phức. Ở đây ta mặc định là đã biết về các khái niệm cơ bản về số phức và hàm sinh, lý thuyết chỉ tập trung vào hai phần chính là \vocabf{căn nguyên thủy} và {định lý RUF}.
+\section{\Large Lý thuyết}
+\begin{itemize}[label=-,leftmargin=0em]
+  \item \vocab{ Định nghĩa:} Cho $n \in \bb{N^*}$, số phức $z$ được gọi là căn bậc $n$ đơn vị nếu $z^n = 1$. 
+  \item Dựa vào hẳng đẳng thức Euler quen thuộc là $e^{\pi i} = -1$ thì ta có tập hợp các căn bậc $n$ của đơn vị là
+  \[
+    \left\{\cos \frac{k2\pi}{n} + i\sin\frac{k2\pi}{n} | k = 0,1,\dots, n -1\right\}
+  \]
+
+  \item Từ giờ ta ký hiệu $w = e^{2\pi i/n} = \cos \frac{2\pi}{n} + i\sin\frac{2\pi}{n}$. Khi này, ta gọi $w$ là căn nguyên thủy bậc $n$. 
+  \item \vocab{Định lý: }Cho $w$ là căn nguyên thủy bậc $n$, khi đó ta có 
+  \[ 
+  1 + w + w^2  + \dots + w^{n - 1} = 0
+  \]
+  \item \vocab{Lưu ý: }khác với tính chất lũy thừa thông thường, đối với số phức thì $ e^{k2\pi i} = 1$ khi và chỉ khi $k \in \bb{Z}$, điều này có thể chứng minh qua công thức De Moivre.
+  \item \vocab{Định lý RUF (Root of Unity Filter):} Cho $m$ là số nguyên dương. Nếu $f(x) = \dsum_{i = 0}^n a_kx^k$ là đa thức hệ số nguyên và $w$ là căn nguyên thủy bậc $m$ thì
+  \[
+  \sum_{m | k}a_k = \frac{1}{m} \sum_{i = 0}^{m - 1}f(w^i)
+  \]
+  \item \vocab{Bổ đề: }Cho $p$ là số nguyên tố lẻ và $a_0,a_1,\dots,a_{p - 1}$ là các số nguyên sao cho 
+  \[
+  a_0 + a_1w + \dots + a_{p - 1}w^{p - 1} =0
+  \]
+  Nếu $w$ là căn nguyên thủy bậc $n$ thì $a_0 = a_1 =\dots = a_{p - 1}$.
+
+  \item \vocab{Định lý (Nhân đa thức): } Cho $S$ là tập hữu hạn các số tự nhiên nào đó và $n$ là một số nguyên dương. Xét đa thức 
+    \[
+    P(x) = \left(\sum_{s \in S}x^s\right)^n = \sum_{k = 0}^m a_kx^k
+    \]
+    Khi đó $a_k$ chính là số bộ $(s_i) \in S^n$ thỏa mãn điều kiện $\sum_{i = 1}^n s_i = k$.
+\end{itemize}
+
+\section{\Large Các ví dụ}
+\begin{itemize}[label=, leftmargin=0em, itemsep=0.5em]
+  \item \begin{bt}\vocab{(PTNK 2009).} Có bao nhiêu số tự nhiên có $n$ chữ số, lập từ các chữ số $3,4,5,6$ và chia hết cho 3?
+  \end{bt}
+  \begin{sol}
+    Xét đa thức $P(x) = (x^3 + x^4 + x^5 + x^6)^n$, khi này số các số thỏa mãn đề bài chính là hệ số của $b_n = \dsum_{3 | i} a_i$.
+    
+    Xét $w$ là căn nguyên thủy bậc 3 thì có $1 + w + w^2 =0$, theo định lý RUF, ta được
+    \[
+    b_n = \frac{1}{3}\sum_{i = 0}^2P(w^i) =\frac{1}{3}\left( P(1) + P(w) + P(w^2)\right)
+    \]
+    Thông qua vài tính toán, ta có 
+    \[
+    \begin{aligned}
+      &P(1) =4^n\\
+      &P(w) = (w^3 +w^4 + w^5 +w^6)^n = \left[w^3(1 + w + w^2 + w^3)\right]^n = 1\\
+      &P(w^2) = (w^6 + w^8 + w^{10} + w^{12})^n = (1 + w^8(1 + w^2 + w^4))^n = 1\\
+    \end{aligned}
+    \]
+    Kết hợp lại tất cả điều trên, số các số thỏa mãn đề bài là $\boxed{b_n = \frac{4^n + 2}{3}}$.
+  \end{sol}
+  \item \begin{bt}\vocab{(IMO 1995).}
+    Cho số nguyên tố $p$ và xét tập $A =\{1,2,\dots,2p\}$. Tìm số tập con của $A$ có $p$ phần tử và tổng các phần tử là một số chia hết cho $p$.
+  \end{bt}
+  \begin{sol}
+    Xét hàm số $f(x,y) = (1 + xy)(1 + x^2y)\dots(1 + x^{2p}y)$. Khi này kết quả của bài toán chính là hệ số của $a_{n,p}$ với $n | p$. Xét căn nguyên thủy bậc $p$ là $w$. Áp dụng định lý RUF theo biến $x$, ta được
+    \[
+      \sum_{n | p}a_{n,k}y^k = \frac{1}{p}\sum_{i = 0}^{p - 1}f(w^i,y)
+    \]
+    Để ý rằng $f(1,y) = (1 + p)^{2p}$. Với mọi, ta có 
+    \begin{align*}
+      f(\zeta^k,y) &= y^{2p}\Big((-y^{-1} - 1)(-y^{-1} - \zeta) \cdots (-y^{-1} - \zeta^{p-1})\Big)^2 \\
+      &= y^{2p}\Big((-y^{-1})^p - 1\Big)^2 \\
+      &= y^{2p}\Big(-(y^{-1})^p - 1\Big)^2 \\
+      &= (y^p + 1)^2.
+  \end{align*}
+  Khi này ta được  $\dsum_{n | p}a_{n,k}y^k =\frac{(p-1)(y^p + 1)^2 + (y+1)^{2p}}p$. Đồng nhất hệ số của $y^p$ ta được kết quả cần tìm là $\boxed{2 + \tfrac{\binom{2p}p - 2}p}$
+  \end{sol}
+
+  Ngoài ra, đối với các bài toán chứng minh phủ bảng thì số phức rất hiệu quả với những cấu hình đơn giản. Lời giải cũng trông rất gọn mà chỉ cần dựa vào ý tưởng của $1 + w + w^2 + \dots + w^{n - 1} = 0$. Ta xét một vài bài toán sau:
+
+  \begin{bt}
+  Cho số nguyên dương $k$. Với giá trị nào của $m,n$ thì bảng ô vuông $m \times n$ có thể được phủ đầy bởi các viên $1 \times k$ hoặc $k \times 1$?
+  \end{bt}
+  \begin{sol}
+    Ta dự đoán rằng $m | k$ hoặc $n | k$. Thật vậy, thông thường là ta sẽ tìm cách tô màu để chỉ ra điều đó. Tuy nhiên nó chỉ hiệu quả đối với $k$ là những số nhỏ, còn nếu $k$ quá lớn thì ta lại phải chia từng trường hợp rất phức tạp. Ở đây, ta có thể sử dụng ý tưởng gán các số có quy luật rằng tổng các ô được lắp bởi viên gạch $k \times 1$ hoặc $1 \times k$ luôn bằng $0$. Khi đó một cách phủ bảng hợp lý là khi tổng các số nằm trên bảng đều bằng 0. 
+    
+    Gọi $w$ là căn nguyên thủy bậc $k$. Gán tọa độ cho bảng bởi các số $0,1,2,\dots$, ô có tọa độ $(i,j)$ ta sẽ gán số phức $w^{i + j}$. Khi đó tổng các số nằm trên bảng là 
+    \[
+      \sum_{i = 0}^n\sum_{j = 0}^{m - 1} w^{i + j} = \left(\sum_{i = 0}^{n - 1} w^i\right)\left(\sum_{i = 0}^{m - 1}w^j\right) = \frac{w^n - 1}{w - 1}. \frac{w^m - 1}{w - 1} = 0
+    \]
+    Khi này ta sẽ được $w^n - 1 = 0$ hoặc $w^m - 1 = 0$. Mà $k < m,n$ thế nên ta được $k | m$ hoặc $k | n$. Cuối cùng ta chỉ ra một cách phủ hợp lý nữa là được, và điều này là không khó.
+  \end{sol}
+  \item \begin{bt}
+    Giả sử một bàn cờ $m \times n$ có thể được lát kín bằng các tấm có dạnh $k \times 1$ hoặc $1 \times p$. Chứng minh rằng có thể lát kín bàn cờ bằng cách chỉ dùng 1 loại tấm $k \times 1$ hoặc $1 \times p$.
+  \end{bt}
+  \begin{sol}
+    Gọi $a,b$ lần lượt là căn nguyên thủy của $k$ và $p$. Gán tọa độ cho bảng bởi các số $0,1,2,\dots$, ô có tọa độ $(i,j)$ sẽ gán số phức là $a^i b^j$. Ta có 
+    \[
+    1 + a + \dots + a^{k - 1} = 0 \text{ và } 1 + b + \dots + b^{p - 1} = 0
+    \]
+    Khi này tổng các số nằm trên bảng là 
+    \[
+      \sum_{i = 0}^n\sum_{j = 0}^{m - 1} a^ib^j = \left(\sum_{i = 0}^{n - 1} a^i\right)\left(\sum_{i = 0}^{m - 1}b^j\right) = \frac{a^n - 1}{a - 1}. \frac{b^m - 1}{b - 1} = 0
+    \]
+    Đến đây ta được $a^n  - 1= 0$ hoặc $b^m - 1 = 0$, tương tự bài trên ta suy ra được $k \mid m$ hoặc $p \mid n$, hoàn tất chứng minh.
+  \end{sol}
+
+  \item \begin{bt}
+    Giả sử một hình chữ nhật có thể được lắp đầy bởi các hình chữ nhật nhỏ hơn, mà mỗi hình này đều có ít nhất một cạnh nguyên. Chứng minh rằng hình chữ nhật lớn được lắp cũng có ít nhất một cạnh nguyên.
+    \end{bt}
+  
+  \begin{sol}
+    Cùng với ý tưởng của hai bài trên, đó là nếu $w$ là căn nguyên thủy bậc $n$ mà có $m > n$ thỏa mãn $w^m = 1$ thì $n | m$. Nhưng câu hỏi đặt ra là làm thế nào để sử dụng số phức trong phạm trù liên tục? Trước tiên, ta gán hệ trục tọa độ góc phần tư thứ nhất của hình chữ nhật lớn sao cho góc tọa độ trùng với đỉnh phía dưới bên trái và các cạnh đều song song trục. 
+    
+    Gọi $w$ là căn nguyên thủy của $1$. Khi này với $i, j > 0$ thực thì ta gán số phức $w^{i + j}$. Ta cần các hình chữ nhật $0$ phải có tổng các số phức bằng $0$. Nhưng khi này các số phức được gán lại nằm dày đặc thì cần bao nhiêu số hạng mới đủ? Vì vậy nên ta có thể xét diện tích của chúng là $0$. 
+    \begin{center}
+      \includegraphics*[scale=0.3]{tp.pdf}
+    \end{center}
+    Giả sử một hình chữ nhật $ABCD$ có cạnh là $A(a,d),B(b,d),C(b,c),D(a,c)$ với $a,b,c,d \geq 0$ thực. Xét hàm số $f: \bb{R}^2 \to \bb{C}$ thỏa mãn $f(x,y) = e^{2\pi i(x + y)}$ thì khi đó ta được
+    \[
+    \begin{aligned}
+      S_{ABCD} = \int_{c}^d\int_{a}^b f(x,y)dxdy &=\int_{c}^d\int_{a}^b e^{2\pi i(x + y)}dxdy\\
+      &= \int_{a}^b e^{\pi i x}dx .  \int_{c}^d e^{\pi i y}dy\\
+      &= \left(\frac{e^{2\pi i b} - e^{2\pi i a}}{2\pi i}\right)\left(\frac{e^{2\pi i d} - e^{2\pi i c}}{2\pi i}\right)
+    \end{aligned}
+    \]
+    $S_{ABCD}  = 0$ khi và chỉ khi một trong hai nhân tử bằng không. Giả sử $e^{2\pi i b} - e^{2\pi i a} = 0$. Ta có 
+    \[
+    \begin{aligned}
+      e^{2\pi i b} - e^{2\pi i a} &= \cos \pi b + i\sin \pi b - \cos \pi a - i\sin \pi a\\
+      &= (\cos \pi b - \cos\pi a) + i(\sin\pi b - \sin\pi a)\\
+      &= -2\sin[\pi(a + b)]. \sin[\pi(a - b)] + 2.i.\cos[\pi(a + b)]\sin[\pi(a - b)]
+    \end{aligned}
+    \]
+    Để một số bằng 0 thì phần thực và ảo phải đồng thời bằng $0$, lấy giao 2 phần lại ta được $\sin[\pi(a - b)] = 0$, suy ra $a - b$ hoặc $c - d$ phải là số nguyên. Áp dụng khai triển này với hình chữ nhật lớn ban đầu thì ta thấy rằng nó cũng phải có một cạnh nguyên, hoàn tất chứng minh.
+  \end{sol}
+  \end{itemize}
+  
+
+\section{\Large Bài tập}
+\begin{itemize}[label=, leftmargin=0em, itemsep=0.5em]
+\item \begin{btvn}
+Cho bảng vuông $13 \times 13$. Hỏi có thể phủ bảng vuông đã cho bằng các viên gạch $1 \times 4$ và $4 \times 1$ sao cho ô vuông ở tâm là ô duy nhất không được phủ?
+\end{btvn}
+\item \begin{btvn}
+  Tìm số nguyên dương $n$ nhỏ nhất sao cho bảng vuông $n \times n$ có thể phủ được bằng đồng thời cả hai bảng vuông $40 \times 40$ và $49 \times 49$.
+\end{btvn}
+\item \begin{btvn}Cho $p$ là một số nguyên tố và số nguyên dương $k$ không vượt quá $p-1$. Tim số tập con $X$ của tập $\{1,2, \ldots, p\}$ biết rằng $X$ chứa đúng $k$ phần tử và tổng tất cả các phần tử của $X$ chia hết cho $p$.
+
+\end{btvn}
+
+\item \begin{btvn}
+  Cho $m, n, p \in \mathbb{N}^*$ trong đó $n+1$ chia hết cho $m$. Tìm số các bộ $\left(x_1, x_2, \ldots, x_n\right)$ gồm $p$ số nguyên dương sao cho tổng $x_1+x_2+\cdots+x_p$ chia hết cho $m$, trong đó mỗi $x_1, x_2, \ldots, x_p$ đều không lớn hơn $n$.
+\end{btvn}
+\item \begin{btvn}
+  Cho $p$ là số nguyên tố lẻ. Tìm số các bộ sắp thứ tự $\left(x_1, x_2, \ldots, x_{p-1}\right)$ gồm $p-1$ só nguyên dương thỏa mãn điều kiện $x_1+2 x_2+\cdots+(p-1) x_{p-1}$ chia hết cho $p$ và
+  $$
+  1 \leq x_1, x_2, \ldots, x_{p-1} \leq p-1
+  $$
+  
+\end{btvn}
+
+\end{itemize}
+\end{document}
