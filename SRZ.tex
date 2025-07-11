@@ -1,0 +1,52 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+\begin{document}
+
+
+\begin{tikzpicture}[
+  >=Stealth,
+  box/.style={
+    draw,
+    minimum size=1.5cm,
+    minimum width=2cm,
+    font=\huge, % chữ trong ô
+    align=center,
+    outer sep=0pt
+  },
+  label/.style={
+    font=\Large % chữ trên mũi tên
+  }
+  ]
+
+% Nodes
+\node[box] (S) {S};
+\node[box, right=4.5cm of S] (Z) {Z};
+\node[box, right=4.5cm of Z] (R) {R};
+
+% Flows
+\draw[->] 
+  ($(S.west) + (-1.5cm,0)$) -- (S.west) 
+  node[midway, above, label] {$\Pi$};
+
+\draw[->] 
+  (S.east) -- (Z.west) 
+  node[midway, above, label] {$\beta S Z$};
+
+\draw[->] 
+  (S.north) -- ++(0,0.8cm) -| (R.north) 
+  node[midway, above, label] {$\delta S$};
+
+\draw[->] 
+  (Z.east) -- (R.west) 
+  node[midway, above, label] {$\alpha S Z$};
+
+\draw[->] 
+  (R.south) -- ++(0,-0.8cm) -| (Z.south) 
+  node[midway, below, label] {$\zeta R$};
+
+\end{tikzpicture}
+
+
+\end{document}
