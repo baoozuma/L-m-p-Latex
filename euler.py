@@ -9,13 +9,13 @@ zeta = 0.1
 alpha = 0.0005
 
 # Time grid
-T = 10   # total time
+T = 20  # total time
 h = 0.01         # time step
 N = int(T/h)    # number of steps
 t = np.linspace(0, T, N+1)
 
 # Initial conditions
-S0 = 500
+S0 = 5
 Z0 = 0
 R0 = 1
 

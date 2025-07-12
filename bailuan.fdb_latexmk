@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1752198175.77553 "d:/Toan Latex/Zombie/bailuan.tex" "bailuan.pdf" "bailuan" 1752198179.38241 0
+["pdflatex"] 1752231220.40894 "d:/Toan Latex/Zombie/bailuan.tex" "bailuan.pdf" "bailuan" 1752231224.16712 0
   "C:/Users/WIN10/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1750403219 231331 2046a6d1f5452f8de7477ee182e5aa47 ""
   "C:/Users/WIN10/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1711592121 24225046 fb61a17db6170e77ba5fcdc4a9c13900 ""
   "C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ipaex-type1/ipxt1-u30.enc" 1525518892 2323 808a4954230d4b9aaf0f3e890ff4e23e ""
@@ -295,12 +295,14 @@
   "C:/Users/WIN10/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1695383086 2269 4fe6fb3396214c91f164d45faf9bec45 ""
   "C:/Users/WIN10/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Figure_1.pdf" 1752197431 16561 c6c0e2b3d0f6f2e4278e04aeef644334 ""
+  "SIZR.pdf" 1752200989 30104 7b2ccfd6fda22fd350708a429dfe95a9 ""
+  "SIZRQ.png" 1752212872 15859 86b75b84822bacaaf7f69ccf068481ba ""
   "SRZ.pdf" 1752074327 29399 837ee5bc94db6b3f0ae73f554609c0f2 ""
-  "bailuan.aux" 1752198178 1919 6baf87232ef4c7f066063e0969e7b914 "pdflatex"
-  "bailuan.out" 1752198178 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "bailuan.pre" 1752198178 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "bailuan.tex" 1752198174 19498 bc4f48f4d8155ec22db82b31b0e7cdcb ""
-  "d:/Toan Latex/Zombie/bailuan.tex" 1752198174 19498 bc4f48f4d8155ec22db82b31b0e7cdcb ""
+  "bailuan.aux" 1752231223 2489 18c21058fc0e9bee4df58f0623dde29b "pdflatex"
+  "bailuan.out" 1752231222 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "bailuan.pre" 1752231222 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "bailuan.tex" 1752231219 28369 7e402e56b4f3ce626101031251df4758 ""
+  "d:/Toan Latex/Zombie/bailuan.tex" 1752231219 28369 7e402e56b4f3ce626101031251df4758 ""
   "settings.sty" 1752197978 9320 6d95f685437138936d13d228ae27cde7 ""
   (generated)
   "bailuan.aux"

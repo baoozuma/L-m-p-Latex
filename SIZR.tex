@@ -1,0 +1,65 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  >=Stealth,
+  box/.style={
+    draw,
+    minimum size=1.5cm,
+    minimum width=2cm,
+    font=\huge,
+    align=center,
+    outer sep=0pt
+  },
+  label/.style={
+    font=\Large
+  }
+  ]
+
+% Nodes
+\node[box] (S) {S};
+\node[box, right=2cm of S] (I) {I};
+\node[box, right=2cm of I] (Z) {Z};
+\node[box, right=2cm of Z] (R) {R};
+
+% Inflow
+\draw[->] 
+  ($(S.west) + (-1.5cm,0)$) -- (S.west) 
+  node[midway, above, label] {$\Pi$};
+
+% S to I
+\draw[->] 
+  (S.east) -- (I.west) 
+  node[midway, above, label] {$\beta S Z$};
+
+% I to Z
+\draw[->] 
+  (I.east) -- (Z.west) 
+  node[midway, above, label] {$\rho I$};
+
+% Z to R (upper arrow: alpha)
+\draw[->] 
+  ([yshift=0.2cm]Z.east) -- ([yshift=0.2cm]R.west) 
+  node[midway, above, label] {$\alpha S Z$};
+
+% R to Z (lower arrow: zeta)
+\draw[->] 
+  ([yshift=-0.2cm]R.west) -- ([yshift=-0.2cm]Z.east) 
+  node[midway, below, label] {$\zeta R$};
+
+% S to R (above)
+\draw[->] 
+  (S.north) -- ++(0,1.2cm) -| (R.north) 
+  node[midway, above, label] {$\delta S$};
+
+% I to R (below)
+\draw[->] 
+  (I.south) -- ++(0,-1.2cm) -| (R.south) 
+  node[midway, below, label] {$\delta I$};
+
+\end{tikzpicture}
+
+\end{document}

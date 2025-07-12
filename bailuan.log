@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.28)  11 JUL 2025 08:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.28)  11 JUL 2025 17:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1618,7 +1618,54 @@ File: UTF8.chr 2021/10/16 4.8.5
 File: UTF8.enc 2021/10/16 4.8.5
 ) (C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
 File: UTF8.chr 2021/10/16 4.8.5
-) [8 <./Figure_1.pdf>] (bailuan.aux)
+) [8 <./Figure_1.pdf>]
+<SIZR.pdf, id=141, 441.41713pt x 144.69759pt>
+File: SIZR.pdf Graphic file (type pdf)
+<use SIZR.pdf>
+Package pdftex.def Info: SIZR.pdf  used on input line 306.
+(pdftex.def)             Requested size: 407.66833pt x 133.6356pt.
+ (C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.enc
+File: UTF8.enc 2021/10/16 4.8.5
+) (C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
+File: UTF8.chr 2021/10/16 4.8.5
+) [9 <./SIZR.pdf>]
+<SIZRQ.png, id=159, 490.83376pt x 283.0575pt>
+File: SIZRQ.png Graphic file (type png)
+<use SIZRQ.png>
+Package pdftex.def Info: SIZRQ.png  used on input line 367.
+(pdftex.def)             Requested size: 362.37569pt x 208.98415pt.
+ (C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.enc
+File: UTF8.enc 2021/10/16 4.8.5
+) (C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
+File: UTF8.chr 2021/10/16 4.8.5
+) [10]
+Overfull \hbox (0.3319pt too wide) detected at line 394
+\OML/lmm/m/it/12 J \OT1/lmr/m/n/12 = [][][] = [][][] \OMS/lmsy/m/n/12 ^^@ [][][]
+ []
+
+(C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.enc
+File: UTF8.enc 2021/10/16 4.8.5
+) (C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
+File: UTF8.chr 2021/10/16 4.8.5
+) [11 <./SIZRQ.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 441--454
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--454
+
+ []
+
+(C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.enc
+File: UTF8.enc 2021/10/16 4.8.5
+) (C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
+File: UTF8.chr 2021/10/16 4.8.5
+) [12] (C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.enc
+File: UTF8.enc 2021/10/16 4.8.5
+) (C:\Users\WIN10\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
+File: UTF8.chr 2021/10/16 4.8.5
+) [13] (bailuan.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1627,17 +1674,17 @@ Package rerunfilecheck Info: File `bailuan.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 37930 strings out of 474486
- 723226 string characters out of 5743755
+ 37971 strings out of 474486
+ 724953 string characters out of 5743755
  1945542 words of memory out of 5000000
- 59446 multiletter control sequences out of 15000+600000
+ 59461 multiletter control sequences out of 15000+600000
  676282 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,12n,147p,10946b,1366s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,14n,147p,10946b,1366s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/ipaex-type1/ipxm-r-u30.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbo10.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/WIN10/AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on bailuan.pdf (8 pages, 364921 bytes).
+Output written on bailuan.pdf (13 pages, 402627 bytes).
 PDF statistics:
- 248 PDF objects out of 1000 (max. 8388607)
- 26 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 32 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

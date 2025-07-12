@@ -287,7 +287,171 @@ Trong một vài trường hợp, loài người sẽ tiêu diệt hoàn toàn Z
 \]
 Trong mô hình SRZ, $R_0 = \frac{\beta}{\alpha}$. 
 \section{Mô hình với quá trình nhiễm trùng tiềm ẩn}
- Trong thực tế, khi một người khỏe mạnh tiếp xúc với Zombie, Virus của Zombie có thể cần một thời gian nhất định để xâm chiếm vật thể và biến chủ thể thành Zombie. Bây giờ ta sẽ nghiên cứu thêm một đối tượng liên quan là lớp bị nhiễm bệnh (Infected).
+ Trong thực tế, khi một người khỏe mạnh tiếp xúc với Zombie, Virus của Zombie có thể cần một thời gian nhất định để xâm chiếm vật thể và biến chủ thể thành Zombie. Bây giờ ta sẽ nghiên cứu thêm một đối tượng liên quan là lớp bị nhiễm bệnh (Infected). Đối tượng này phải thỏa mãn hai điều kiện:
+ \begin{itemize}
+    \item Người khỏe mạnh (Susceptibles) phải đi qua lớp và ở đó trong một thời gian trước khi trở thành Zombie
+    \item Người bị nhiễm (Infected) vẫn có thể chết một cách tự nhiên trước khi trở thành Zombie.
+ \end{itemize}
+Và ta cũng gọi $\rho$ là tốc độ người bị nhiễm trở thành Zombie. Khi đó ta được mô hình SIZR như sau:
+\[
+ \begin{aligned}
+    S' &= \Pi - \beta S Z - \delta S\\
+    I' &= \beta S Z - \rho I - \delta I\\
+    Z' &= \rho I + \zeta R - \alpha S Z\\
+    R &= \delta S + \delta I + \alpha S Z - \zeta R
+ \end{aligned}
+\]
+Mô hình có thể được sơ đồ hóa như sau:
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{SIZR.pdf}
+\end{center}
+Dễ thấy hai điểm cân bằng của hệ này lại là $(\overline{S},0,0,0)$ và $(0,0,\overline{Z},0)$. Vì thế con người và Zombie không thể cùng nhau tồn tại lâu dài được. Jacobian của hệ là 
+\[
+    J = \begin{bmatrix}
+        -\beta Z & 0 & -\beta S & 0\\
+        \beta Z & \rho & \beta S & 0\\
+        -\alpha Z & \rho & -\alpha S & \zeta \\
+        \alpha Z & 0 & \alpha S & -\zeta
+    \end{bmatrix}
+\]
+Ta vẫn sẽ đi đánh giá giá trị của eigeinvalue của Jacobian trong từng điểm cân bằng. Đầu tiên là 
+\[
+    \begin{aligned}
+        \det(J(\overline{S},0,0,0) - \lambda I) &=\det \begin{bmatrix}
+        \lambda & 0 & \beta \overline{S} & 0\\
+        0 & -\rho - \lambda & \beta \overline{S} & 0\\
+        0 & \rho & -\alpha\overline{S} - \lambda & \zeta\\
+        0 & 0 & \alpha \overline{S} & -\zeta - \lambda
+    \end{bmatrix}\\
+    & = -\lambda \det\begin{bmatrix}
+        -\rho - \lambda & \beta\overline{S} & 0\\
+        \rho & -\alpha\overline{S} - \lambda & \zeta\\
+        0 & \alpha\overline{S} & -\zeta - \lambda
+    \end{bmatrix}\\
+    & = \lambda[-\lambda^3 - (\rho + \zeta + \alpha\overline{S})\lambda^2 - (\rho\alpha\overline{S} + \rho\zeta - \rho\beta\overline{S})\lambda\\
+    & + \rho\zeta\beta\overline{S}]
+    \end{aligned}
+\]
+Vì $\rho\zeta\beta\overline{S} > 0$ nên phương trình trên có 1 nghiệm dương, vì vậy điểm cân bằng này không ổn định. Tiếp theo, ta có 
+\[
+\det\big( J(0,0,\bar{Z},0) - \lambda I \big) =
+\det \begin{bmatrix}
+-\beta \bar{Z} - \lambda & 0 & 0 & 0 \\
+\beta \bar{Z} & -\rho - \lambda & 0 & 0 \\
+-\alpha \bar{Z} & \rho & -\lambda & \zeta \\
+\alpha \bar{Z} & 0 & 0 & -\zeta - \lambda
+\end{bmatrix}.
+\]
+Các eigeinvalue là $\lambda \in \{0,-\beta\overline{Z}, -\rho, -\zeta\}$, tất cả đều âm, chứng tỏ rằng cho dù quá trình này bị trì hoãn bởi người bị lây nhiễm cần thời gian để trở thành Zombie, về sau cùng, Zombie vẫn sẽ chiếm phần lớn dân số. $R_0$ trường hợp này vẫn là $\frac{\beta}{\alpha}$.
+
+\section{Mô hình với yếu tố Cách ly}
+Bởi vì con người không thể sống chung với Zombie, ta cần phải có biện pháp để đối phó với người mắc bệnh và Zombie, và một phương pháp tương đối hiệu quả hiện nay đó là cách ly (Quarantine). Đối tượng thuộc lớp Quarantine sẽ thỏa mãn các điều sau:
+\begin{itemize}
+\item Khu vực cách ly chỉ bao gồm những người bị nhiễm bệnh (Infected) và Zombie. Và những đối tượng này sẽ tăng vào khu cách ly với tốc độ lần lượt là $\kappa$ và $\sigma$.
+\item Có một khả năng rằng một vài người trong khu cách ly sẽ cố gắng chạy trốn ra bên ngoài, nhưng họ đều sẽ bị giết trước khi đào thoát thành công (tỉ lệ $\gamma$).
+\item Những người bị giết đó sẽ được vào lớp Removed và có thể trở thành Zombie.
+\end{itemize}
+
+Hệ SIZRQ bây giờ sẽ là 
+\[
+    \begin{aligned}
+        S' &= \Pi - \beta SZ - \delta S\\
+        I' &= \beta SZ - \rho I - \delta I - \kappa I\\
+        Z' &= \rho I + \zeta R - \alpha SZ - \sigma Z \\
+        R' &= \delta S + \delta I + \alpha SZ - \zeta R + \gamma Q\\
+        Q &= \kappa I + \sigma Z - \gamma Q
+    \end{aligned}
+\]
+Hệ có thể sơ đồ hóa như sau:
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{SIZRQ.png}
+\end{center}
+Trong khoảng thời gian ngắn $(\Pi = \delta = 0)$, ta có được hai điểm cân bằng 
+\[
+(\overline{S},\overline{I},\overline{Z},\overline{R},\overline{Q}) = (\overline{S},0,0,0,0) = (0,0,\overline{Z},\overline{R},\overline{Q})
+\]
+Nếu ta tính Jacobian của hệ mà hệ chỉ cho ta kết quả là hệ ổn định hay không thì quả là phí sức khi ta cần phải tính một định thức của ma trận $5\times 5$, vì vậy ta sẽ tìm cách phân tích hành vi của hệ một cách đỡ tính toán và hiệu quả hơn. Ta sẽ quan tâm đến $R_0$ - Hệ số sinh cơ bản. Và để tìm được $R_0$, ta chỉ cần quan tâm đến ba đối tượng là $I,Z$ và $Q$. Đặt vector
+\[
+    u = \begin{bmatrix}
+        I\\Z\\Q
+    \end{bmatrix}
+\]
+Theo định lý Hartman-Grobman, ta có 
+\[
+    \dot{u}  = Ju
+\]
+với $J$ là Jacobian của hệ $(I',Z',Q')$. Ta tính được 
+\[J = 
+\begin{bmatrix}
+-(\rho+\delta+\kappa) & \beta S & 0 \\[6pt]
+\rho & -\alpha S - \sigma & 0 \\[6pt]
+\kappa & \sigma & -\gamma
+\end{bmatrix}
+\]
+Ta viết cách khác \[
+J = \frac{\delta(\text{độ thay đổi của hệ tại }i)}{\delta x_j}\Bigg|_{x} = 
+\frac{\delta(\text{độ tăng của hệ tại }i)}{\delta x_j}\Bigg|_{x} - \frac{\delta(\text{độ giảm của hệ tại }i)}{\delta x_j}\Bigg|_{x}
+\]
+Và ta đặt $F = 
+\frac{\delta(\text{độ tăng của hệ tại }i)}{\delta x_j}\Bigg|_{x}$ và $V =\frac{\delta(\text{độ giảm của hệ tại }i)}{\delta x_j}\Bigg|_{x}$ thì có $J = F - V$, tức là có thể tìm được $F$ và $V$ bằng cách tách các số hạng hệ số của $J$. Xét sơ đồ hóa của SIZRQ, sơ đồ này mô tả độ thay đổi của từng đối tượng.
+Thay điểm cân bằng $(N, 0, 0, 0, 0)$ ta tính được ma trận $F$ và $V$ có dạng như sau:
+\[
+F =
+\begin{bmatrix}
+0 & \beta.N & 0 \\[6pt]
+0 & 0 & 0 \\[6pt]
+0 & 0 & 0
+\end{bmatrix}
+,
+\quad
+V=
+\begin{bmatrix}
+    \rho+\kappa & 0 & 0 \\[6pt]
+    -\rho & \alpha.N + \sigma & 0 \\[6pt]
+    -\kappa & -\sigma  & \gamma
+\end{bmatrix}
+\]
+Với $F-V = J_0$ ($J_0$ là Jacobian tại điểm cân bằng). Ta tìm ma trận nghịch đảo của $V$.
+\[
+V^{-1} =
+\frac{1}{\gamma (\rho+\kappa)(\alpha N+\sigma)}
+\begin{bmatrix}
+\gamma (\alpha N+\sigma) & 0 & 0 \\[6pt]
+\rho \gamma & \gamma (\rho+\kappa) & 0 \\[6pt]
+\rho \sigma + \kappa (\alpha N+\sigma) & \sigma (\rho+\kappa) & (\rho+\kappa)(\alpha N+\sigma)
+\end{bmatrix}
+\]
+Từ đó ta tìm được hằng số $R_0$ thông qua tỉ lệ của $\frac{F}{V}$ là:
+\[
+FV^{-1} =
+\frac{1}{\gamma (\rho+\kappa)(\alpha N+\sigma)}
+\begin{bmatrix}
+\beta N \rho \gamma & \beta N \gamma (\rho+\kappa) & 0 \\[6pt]
+0 & 0 & 0 \\[6pt]
+0 & 0 & 0
+\end{bmatrix}
+\]
+Dễ dàng tĩnh được:
+\[
+R_0 = \frac{\beta N \rho}{(\rho+\kappa)(\alpha N + \sigma)}.
+\]
+Suy ra, trạng thái cân bằng không có dịch bệnh ổn định nếu $R_0$<1. Điều này có thể làm được bằng cách tăng $\kappa$ hoặc $\sigma$ tức là tốc độ cách ly người bị nhiễm bệnh và Zombie tương ứng. Nếu quy mô quần thể lớn thì:
+\[
+R_0 \approx \frac{\beta \rho}{(\rho+\kappa)\alpha}.
+\]
+ Nếu (Zombie lây nhiễm con người nhanh hơn con người tiêu diệt Zombie, như chúng ta dự đoán), thì
+ việc tiêu diệt dịch bệnh phụ thuộc rất nhiều vào việc cách ly những người ở giai đoạn đầu của quá trình
+ nhiễm. Điều này có thể đặc biệt khó khăn nếu việc xác định những cá nhân như vậy không rõ ràng.
+ \newline
+ \\
+  Tuy nhiên, chúng tôi cho rằng việc cách ly một tỷ lệ lớn các cá thể nhiễm bệnh là không thực tế do hạn chế
+ về cơ sở hạ tầng. Vì vậy, chúng tôi không kỳ vọng các giá trị  hoặc  sẽ cao trong thực tế. Vì vậy kết quả mà chúng tôi nghiêng về hơn sẽ là $R_0$>1.
+ \newline
+ \\
+ Cũng như trước, chúng tôi minh họa bằng phương pháp Euler. Các tham số giống như trong các mô hình
+ trước. Chúng tôi điều chỉnh  để thỏa mãn  Kết quả được minh họa ở hình . Trong trường
+ hợp này, hiệu quả của việc cách ly chỉ làm trì hoãn nhẹ thời gian dẫn đến sự diệt vong của loài người
+
 \end{document}
 
  
